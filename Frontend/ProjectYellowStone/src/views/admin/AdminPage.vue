@@ -5,29 +5,28 @@
                 <h1>Sample Project</h1>
 
                 <div id="links">
-                    <a href="">Home</a>
+                    <a href="">Dashboard</a>
                     <a href="">Records</a>
-                    <a href="">Home</a>
                     <a href="">Home</a>
                     <a href="">Sign Out</a>
                 </div>
 
                 <div id="navigation-footer">
                     <h4>Sample Footer</h4>
-                    <h6>This is a test</h6>
+                    <h5>Mango Quality Analysis System</h5>
                 </div>
             </div>
         </div>
 
         <div id="right-section">
-            <h1>Dashboard</h1>
-            <!-- <component :is="current_component" /> -->
+            <component :is="current_component" />
         </div>
     </div>
 </template>
 
 <script>
-import DashboardPage from './DashboardPage.vue';
+// import DashboardPage from './DashboardPage.vue';
+import AnalysisCharts from '@/components/charts/AnalysisCharts.vue';
 
 import '@/assets/base.css';
 import current_address from '@/address.js';
@@ -35,11 +34,12 @@ import current_address from '@/address.js';
 export default {
     'name': 'AdminPage',
     'components': {
-        DashboardPage
+        // DashboardPage
+        AnalysisCharts
     },
     data() {
         return {
-            current_component: 'DashboardPage'
+            current_component: 'AnalysisCharts'
         }
     },
     mounted() {
@@ -82,7 +82,9 @@ export default {
 
 #right-section {
     width: 85%;
-    padding: 2%;
-    background-color: red;
+}
+
+#navigation-footer {
+
 }
 </style>

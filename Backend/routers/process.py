@@ -24,8 +24,8 @@ async def handle_image_payload(images: List[UploadFile] = File(...), db: Session
     time.sleep(10)
     
     return { 
-        'response': 'Successfully Uploaded Image',
-        'number_of_tests_conducted': '500 (100 * 5)',
-        'classification': classification,
+        'response': 'Successfully Uploaded Mango Images',
+        'model': 'v8.2',
+        'classification': 'High Quality',
         'status_code': 200 
     }
