@@ -239,4 +239,7 @@ ml_models/**/dataset/*.bmp
 ml_models/**/dataset/*.tiff
 ml_models/**/dataset/*.webp
 
+*.h5
+*.keras
+
 # End of .gitignore

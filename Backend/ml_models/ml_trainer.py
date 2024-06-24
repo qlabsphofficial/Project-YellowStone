@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 # Paths to your dataset
-dataset_path = './dataset'
+dataset_path = r'C:\\Users\\ADMIN\\Documents\\GitHub\\Project-YellowStone\\Backend\\ml_models\\dataset'
 train_dir = os.path.join(dataset_path, 'train')
 val_dir = os.path.join(dataset_path, 'validation')
 
@@ -71,7 +71,7 @@ model.summary()
 # Define callbacks
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 model_checkpoint = ModelCheckpoint(
-    'mango_quality_model.h5',  # Model file will be saved here
+    'mango_quality_model.keras',  # Model file will be saved here
     monitor='val_loss',
     save_best_only=True
 )
@@ -92,7 +92,7 @@ print(f'Validation Loss: {val_loss}')
 print(f'Validation Accuracy: {val_accuracy}')
 
 # Save the final model
-model.save('final_mango_quality_model.h5')
+model.save('final_mango_quality_model.keras')
 
 # To make predictions on new images
 def predict_image(model, img_path):
@@ -107,5 +107,5 @@ def predict_image(model, img_path):
     else:
         print(f'The image {img_path} is classified as LOW GRADE')
 
-# Example usage
-# predict_image(model, 'path/to/your/mango_image.jpg')
+
+predict_image(model, r'C:\\Users\\ADMIN\\Documents\\Sample Mango\\Sample 1.png')
