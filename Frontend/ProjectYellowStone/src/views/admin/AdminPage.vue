@@ -61,7 +61,8 @@ export default {
 
 #left-section {
     padding: 2%;
-    background-color: green;
+    color: white;
+    background-color: #003566;
     display: flex;
     flex-direction: column;
 
@@ -77,6 +78,16 @@ export default {
         a:visited {
             color: white;
         }
+    }
+
+    h4 {
+        line-height: 0;
+    }
+
+    #navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 

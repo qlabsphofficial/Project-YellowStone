@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 
 # Paths to your dataset
-dataset_path = '/path/to/dataset'  # Change this to the path where your dataset is stored
+dataset_path = './dataset'
 train_dir = os.path.join(dataset_path, 'train')
 val_dir = os.path.join(dataset_path, 'validation')
 
@@ -22,7 +22,7 @@ train_datagen = ImageDataGenerator(
     shear_range=0.2,
     zoom_range=0.2,
     horizontal_flip=True,
-    validation_split=0.2  # Split for validation
+    validation_split=0.2  # 20% of the data for validation
 )
 
 # No augmentation for validation
@@ -93,3 +93,19 @@ print(f'Validation Accuracy: {val_accuracy}')
 
 # Save the final model
 model.save('final_mango_quality_model.h5')
+
+# To make predictions on new images
+def predict_image(model, img_path):
+    from tensorflow.keras.preprocessing import image
+    img = image.load_img(img_path, target_size=(img_height, img_width))
+    img_array = image.img_to_array(img) / 255.0
+    img_array = np.expand_dims(img_array, axis=0)
+    
+    prediction = model.predict(img_array)
+    if prediction[0] > 0.5:
+        print(f'The image {img_path} is classified as HIGH GRADE')
+    else:
+        print(f'The image {img_path} is classified as LOW GRADE')
+
+# Example usage
+# predict_image(model, 'path/to/your/mango_image.jpg')

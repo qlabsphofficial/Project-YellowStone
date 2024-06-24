@@ -4,8 +4,13 @@
         
         <div id="all-charts">
           <div class="chart-container">
-              <h2>Temperature</h2>
+              <h2>Quality Distribution</h2>
               <canvas ref="barChart1" width="600" height="260"></canvas>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
           </div>
 
           <div class="chart-container">
@@ -14,7 +19,7 @@
           </div>
           
           <div class="chart-container">
-              <h2>pH</h2>
+              <h2>Historical Data</h2>
               <canvas ref="barChart3" width="600" height="260"></canvas>
           </div>
 
@@ -98,7 +103,7 @@ export default {
     renderBarChart3() {
       const ctx = this.$refs.barChart3.getContext('2d');
       this.barChart3 = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: ['January', 'February', 'March', 'April', 'May'],
             datasets: [{
@@ -167,8 +172,13 @@ export default {
 
 <style>
 #charts-container {
-    height: 90%;
-    width: 100%;
+    height: 85%;
+    width: 90%;
+    padding: 3%;
+}
+
+#all-charts {
+  overflow-y: scroll;
 }
 
 #charts-container::-webkit-scrollbar {
@@ -186,7 +196,7 @@ export default {
 }
 
 #all-charts {
-    height: 90%;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -197,5 +207,7 @@ export default {
 
 .chart-container {
   margin: 1%;
+  padding: 1%;
+  box-shadow: 0px 3px 5px 1px #B5B5B5;
 }
 </style>
