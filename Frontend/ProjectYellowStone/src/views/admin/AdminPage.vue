@@ -2,19 +2,29 @@
     <div id="container">
         <div id="left-section">
             <div id="navigation">
-                <h1>Sample Project</h1>
+                <h1>Yellow Stone</h1>
 
-                <div id="links">
-                    <a href="">Dashboard</a>
-                    <a href="">Records</a>
-                    <a href="">Home</a>
-                    <a href="">Sign Out</a>
+                <div>
+                    <div class="links">
+                        <img src="@/assets/icons/home-button.png">
+                        <a href="">Home</a>
+                    </div>
+                    
+                    <div class="links">
+                        <img src="@/assets/icons/cogwheel.png">
+                        <a href="">Settings</a>
+                    </div>
+                    
+                    <div class="links">
+                        <img src="@/assets/icons/menu-bar.png">
+                        <a href="">Menu</a>
+                    </div>
                 </div>
+            </div>
 
-                <div id="navigation-footer">
-                    <h4>Sample Footer</h4>
-                    <h5>Mango Quality Analysis System</h5>
-                </div>
+            <div id="navigation-footer">
+                <h3>Yellow Stone</h3>
+                <h5>Mango Quality Analysis System</h5>
             </div>
         </div>
 
@@ -60,42 +70,65 @@ export default {
 }
 
 #left-section {
-    padding: 2%;
+    width: 15%;
+    height: 100%;
     color: white;
     background-color: #003566;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    #links {
-        display: flex;
-        flex-direction: column;
-
-        a {
-            text-decoration: none;
-            font-size: 16pt;
-        }
-
-        a:visited {
-            color: white;
-        }
+    a {
+        text-decoration: none;
+        font-size: 16pt;
     }
 
-    h4 {
-        line-height: 0;
+    a:visited {
+        color: white;
     }
+}
 
-    #navigation {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+#navigation {
+    width: 85%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.links {
+    margin-top: 2%;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px solid white;
+
+    cursor: pointer;
+
+    img {
+        height: 30px; 
+        width: 30px;
+        margin-left: 3%;
+        margin-right: 4%;
+    }
+}
+
+#navigation-footer {
+    width: 85%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+    justify-content: end;
+
+    h3, h5 {
+        margin: 0;
+        padding: 0;
     }
 }
 
 #right-section {
     width: 85%;
-}
-
-#navigation-footer {
-
 }
 </style>
