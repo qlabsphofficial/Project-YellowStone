@@ -2,7 +2,7 @@
     <div id="container">
         <div id="left-section">
             <div id="navigation">
-                <h1>Sample Project</h1>
+                <h1>MQAS</h1>
 
                 <div id="links">
                     <a href="">Dashboard</a>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div id="navigation-footer">
-                    <h4>Sample Footer</h4>
+                    <h4>MQAS</h4>
                     <h5>Mango Quality Analysis System</h5>
                 </div>
             </div>
@@ -85,9 +85,18 @@ export default {
     }
 
     #navigation {
+        height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        #links {
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
 }
 
