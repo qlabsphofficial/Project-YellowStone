@@ -2,13 +2,23 @@
     <div id="container">
         <div id="left-section">
             <div id="navigation">
-                <h1>MQAS</h1>
+                <h1>Yellow Stone</h1>
 
-                <div id="links">
-                    <a href="">Dashboard</a>
-                    <a href="">Records</a>
-                    <a href="">Home</a>
-                    <a href="">Sign Out</a>
+                <div>
+                    <div class="links">
+                        <img src="@/assets/icons/home-button.png">
+                        <a href="">Home</a>
+                    </div>
+                    
+                    <div class="links">
+                        <img src="@/assets/icons/cogwheel.png">
+                        <a href="">Settings</a>
+                    </div>
+                    
+                    <div class="links">
+                        <img src="@/assets/icons/menu-bar.png">
+                        <a href="">Menu</a>
+                    </div>
                 </div>
 
                 <div id="navigation-footer">
@@ -60,28 +70,21 @@ export default {
 }
 
 #left-section {
-    padding: 2%;
+    width: 15%;
+    height: 100%;
     color: white;
     background-color: #003566;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    #links {
-        display: flex;
-        flex-direction: column;
-
-        a {
-            text-decoration: none;
-            font-size: 16pt;
-        }
-
-        a:visited {
-            color: white;
-        }
+    a {
+        text-decoration: none;
+        font-size: 16pt;
     }
 
-    h4 {
-        line-height: 0;
+    a:visited {
+        color: white;
     }
 
     #navigation {
@@ -102,9 +105,5 @@ export default {
 
 #right-section {
     width: 85%;
-}
-
-#navigation-footer {
-
 }
 </style>

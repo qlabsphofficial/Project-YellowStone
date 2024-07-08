@@ -1,31 +1,27 @@
 <template>
     <div id="charts-container">
-        <h1>Dashboard</h1>
-        
         <div id="all-charts">
-          <div class="chart-container">
+          <div id="top-chart">
+            <div id="top-left-chart" class="chart-container">
               <h2>Quality Distribution</h2>
-              <canvas ref="barChart1" width="600" height="260"></canvas>
+              <canvas ref="barChart1"></canvas>
+            </div>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-
-          <div class="chart-container">
-              <h2>Turbidity</h2>
-              <canvas ref="barChart2" width="300" height="130"></canvas>
+            <div id="top-right-chart" class="chart-container">
+              <h2>Historical Data</h2>
+              <canvas ref="barChart3"></canvas>
+            </div>
           </div>
           
-          <div class="chart-container">
-              <h2>Historical Data</h2>
-              <canvas ref="barChart3" width="600" height="260"></canvas>
-          </div>
+          <div id="bot-chart">
+            <div id="bot-left-chart" class="chart-container">
+              <h2>Dashboard Overview</h2>
+              <canvas ref="barChart2"></canvas>
+            </div>
+            
+            <div id="bot-right-chart" class="chart-container">
 
-          <div class="chart-container">
-              <h2>TDS</h2>
-              <canvas ref="barChart4" width="600" height="260"></canvas>
+            </div>
           </div>
         </div>
     </div>
@@ -172,13 +168,60 @@ export default {
 
 <style>
 #charts-container {
-    height: 85%;
-    width: 90%;
-    padding: 3%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #all-charts {
-  overflow-y: scroll;
+  height: 95%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+#top-chart {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#top-left-chart {
+  height: 98%;
+  padding-left: 1%;
+  width: 48.5%;
+}
+
+#top-right-chart {
+  height: 98%;
+  padding-left: 1%;
+  width: 48.5%;
+}
+
+#bot-chart {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#bot-left-chart {
+  height: 98%;
+  padding-left: 1%;
+  width: 48.5%;
+}
+
+#bot-right-chart {
+  height: 98%;
+  padding-left: 1%;
+  width: 48.5%;
 }
 
 #charts-container::-webkit-scrollbar {
@@ -195,19 +238,7 @@ export default {
   background: #f1f1f1;
 }
 
-#all-charts {
-    height: 80%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 .chart-container {
-  margin: 1%;
-  padding: 1%;
   box-shadow: 0px 3px 5px 1px #B5B5B5;
 }
 </style>
