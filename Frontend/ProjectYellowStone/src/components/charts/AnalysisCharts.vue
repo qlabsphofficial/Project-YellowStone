@@ -77,10 +77,10 @@ export default {
       this.barChart2 = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May'],
+            labels: ['April', 'May', 'June', 'July'],
             datasets: [{
-            label: 'Average Humidity',
-            data: [16, 15, 14, 14, 18],
+            label: 'Average',
+            data: [16, 15, 14, 14],
             backgroundColor: 'rgba(20, 151, 221, 0.7)',
             borderColor: 'rgba(20, 151, 221, 0.7)',
             borderWidth: 1,
@@ -166,62 +166,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 #charts-container {
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 90%;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #all-charts {
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-#top-chart {
-  height: 50%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-#top-left-chart {
-  height: 98%;
-  padding-left: 1%;
-  width: 48.5%;
-}
-
-#top-right-chart {
-  height: 98%;
-  padding-left: 1%;
-  width: 48.5%;
-}
-
-#bot-chart {
-  height: 50%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-#bot-left-chart {
-  height: 98%;
-  padding-left: 1%;
-  width: 48.5%;
-}
-
-#bot-right-chart {
-  height: 98%;
-  padding-left: 1%;
-  width: 48.5%;
 }
 
 #charts-container::-webkit-scrollbar {
@@ -238,7 +194,50 @@ export default {
   background: #f1f1f1;
 }
 
+#top-chart {
+  height: 50%;
+  width: 100%;
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  #top-left-chart {
+    height: 100%;
+    width: 43.5%;
+  }
+
+  #top-right-chart {
+    height: 100%;
+    width: 43.5%;
+  }
+}
+
+#bot-chart {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  #bot-left-chart {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #bot-right-chart {
+    height: 100%;
+    width: 67%;
+  }
+}
+
 .chart-container {
+  padding-left: 3%;
+  padding-right: 3%;
   box-shadow: 0px 3px 5px 1px #B5B5B5;
 }
 </style>

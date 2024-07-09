@@ -4,10 +4,10 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 
 # Paths to your dataset
-dataset_path = r'C:\\Users\\ADMIN\\Documents\\GitHub\\Project-YellowStone\\Backend\\ml_models\\dataset'
+dataset_path = r'C:\\Users\\0si_section\\Documents\\GitHub\\Project-YellowStone\\Backend\\ml_models\\dataset'
 train_dir = os.path.join(dataset_path, 'train')
 val_dir = os.path.join(dataset_path, 'validation')
 
@@ -21,7 +21,11 @@ train_datagen = ImageDataGenerator(
     rescale=1.0/255.0,
     shear_range=0.2,
     zoom_range=0.2,
+    rotation_range=30,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
     horizontal_flip=True,
+    fill_mode='nearest',
     validation_split=0.2  # 20% of the data for validation
 )
 
@@ -46,17 +50,19 @@ val_generator = val_datagen.flow_from_directory(
     subset='validation'  # Set as validation data
 )
 
-# Build the model
+# Simplified model with added regularization
 model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(img_height, img_width, 3)),
+    Conv2D(32, (3, 3), activation='relu', input_shape=(img_height, img_width, 3), kernel_regularizer=tf.keras.regularizers.l2(0.01)),
     MaxPooling2D(pool_size=(2, 2)),
-    Conv2D(64, (3, 3), activation='relu'),
+    Dropout(0.2),  # Dropout layer
+    Conv2D(64, (3, 3), activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
     MaxPooling2D(pool_size=(2, 2)),
-    Conv2D(128, (3, 3), activation='relu'),
+    Dropout(0.2),  # Dropout layer
+    Conv2D(128, (3, 3), activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
     MaxPooling2D(pool_size=(2, 2)),
     Flatten(),
-    Dense(512, activation='relu'),
-    Dropout(0.5),
+    Dense(256, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),
+    Dropout(0.5),  # Dropout layer
     Dense(1, activation='sigmoid')
 ])
 
@@ -68,13 +74,14 @@ model.compile(
 
 model.summary()
 
-# Define callbacks
+# Define callbacks with reduced learning rate on plateau
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 model_checkpoint = ModelCheckpoint(
     'mango_quality_model.keras',  # Model file will be saved here
     monitor='val_loss',
     save_best_only=True
 )
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.001)
 
 # Train the model
 history = model.fit(
@@ -83,7 +90,7 @@ history = model.fit(
     validation_data=val_generator,
     validation_steps=val_generator.samples // batch_size,
     epochs=epochs,
-    callbacks=[early_stopping, model_checkpoint]
+    callbacks=[early_stopping, model_checkpoint, reduce_lr]
 )
 
 # Evaluate the model
@@ -107,5 +114,5 @@ def predict_image(model, img_path):
     else:
         print(f'The image {img_path} is classified as LOW GRADE')
 
-
-predict_image(model, r'C:\\Users\\ADMIN\\Documents\\Sample Mango\\Sample 1.png')
+# Example of prediction
+predict_image(model, r'C:\\Users\\0si_section\\Pictures\\Sample 1.jpg')

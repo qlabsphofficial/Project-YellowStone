@@ -1,6 +1,19 @@
 <template>
     <div id="container">
-        <h1>Test</h1>
+        <div id="login-modal">
+            <h1>MQAS</h1>
+            <h5>Automated Quality Checker</h5>
+
+            <form method="post">
+                <h4>Username</h4>
+                <input type="text" placeholder="Enter your username...">
+
+                <h4>Password</h4>
+                <input type="text" placeholder="Enter your username...">
+
+                <input id="submit-button" type="submit" value="Login">
+            </form>
+        </div>
     </div>
 </template>
 
@@ -23,6 +36,58 @@ export default {
 
 <style scoped lang="scss">
 #container {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
 
+    #login-modal {
+        height: 75%;
+        width: 40%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 2px 2px 2px 2px #cccccc;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            width: 50%;
+
+            input {
+                height: 10%;
+                width: 100%;
+                margin-bottom: 2%;
+            }
+
+            #submit-button {
+                height: 15%;
+                width: 100%;
+                margin-top: 10%;
+                font-weight: bold;
+                color: white;
+                background-color: #4d4d4d;
+                border-color: 1px solid #4d4d4d;
+                transition: .4s;
+            }
+
+            #submit-button:hover {
+                background-color: transparent;
+                color: #4d4d4d;
+            }
+        }
+        
+    }
 }
 </style>

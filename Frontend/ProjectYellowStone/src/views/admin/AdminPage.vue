@@ -2,22 +2,30 @@
     <div id="container">
         <div id="left-section">
             <div id="navigation">
-                <h1>Yellow Stone</h1>
-
                 <div>
-                    <div class="links">
-                        <img src="@/assets/icons/home-button.png">
-                        <a href="">Home</a>
+                    <h1>MQAS</h1>
+                    <p>Automated Quality Checker</p>
+                </div>
+
+                <div id="links">
+                    <div class="link">
+                        <!-- <img src="@/assets/icons/home-button.png"> -->
+                        <a href="">Dashboard</a>
                     </div>
                     
-                    <div class="links">
-                        <img src="@/assets/icons/cogwheel.png">
+                    <div class="link">
+                        <!-- <img src="@/assets/icons/cogwheel.png"> -->
                         <a href="">Settings</a>
                     </div>
                     
-                    <div class="links">
-                        <img src="@/assets/icons/menu-bar.png">
-                        <a href="">Menu</a>
+                    <div class="link">
+                        <!-- <img src="@/assets/icons/menu-bar.png"> -->
+                        <a href="">Settings</a>
+                    </div>
+
+                    <div class="link">
+                        <!-- <img src="@/assets/icons/menu-bar.png"> -->
+                        <a href="">Sign Out</a>
                     </div>
                 </div>
 
@@ -89,7 +97,8 @@ export default {
 
     #navigation {
         height: 100%;
-        width: 100%;
+        width: 85%;
+        padding-left: 15%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -100,10 +109,19 @@ export default {
             flex-direction: column;
             justify-content: space-between;
         }
+
+        #navigation-footer {
+            h4 {
+                line-height: 0;
+            }
+        }
     }
 }
 
 #right-section {
     width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
