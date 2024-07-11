@@ -5,14 +5,15 @@ from sqlalchemy.orm import Session
 from database import SessionLocal, engine, Base
 
 # from routers import admin, authentication, notifications, resume, profile, email
-from routers import process
+from routers import process, authentication
 
 
 IMAGEDIR = "images/"
 
 app = FastAPI()
-app.include_router(process.router)
 
+app.include_router(process.router)
+app.include_router(authentication.router)
 
 app.add_middleware(
     CORSMiddleware,

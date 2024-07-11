@@ -1,8 +1,8 @@
 <template>
     <div id="container">
         <div id="login-modal">
-            <h1>MQAS</h1>
-            <h5>Automated Quality Checker</h5>
+            <h1>LOGIN</h1>
+            <h5>Mango Quality Analysis System</h5>
 
             <form method="post">
                 <h4>Username</h4>
@@ -56,6 +56,10 @@ export default {
         align-items: center;
         border-radius: 15px;
         box-shadow: 2px 2px 2px 2px #cccccc;
+
+        h1 {
+            line-height: 0;
+        }
 
         form {
             display: flex;

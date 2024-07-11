@@ -8,8 +8,7 @@
             </div>
 
             <div id="top-right-chart" class="chart-container">
-              <h2>Historical Data</h2>
-              <canvas ref="barChart3"></canvas>
+              <h2>General Report</h2>
             </div>
           </div>
           
@@ -20,7 +19,8 @@
             </div>
             
             <div id="bot-right-chart" class="chart-container">
-
+              <h2>Historical Data</h2>
+              <canvas ref="barChart3"></canvas>
             </div>
           </div>
         </div>
