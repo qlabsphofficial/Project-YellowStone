@@ -8,25 +8,10 @@
                 </div>
 
                 <div id="links">
-                    <div class="link">
-                        <!-- <img src="@/assets/icons/home-button.png"> -->
-                        <a href="">Dashboard</a>
-                    </div>
-                    
-                    <div class="link">
-                        <!-- <img src="@/assets/icons/cogwheel.png"> -->
-                        <a href="">Settings</a>
-                    </div>
-                    
-                    <div class="link">
-                        <!-- <img src="@/assets/icons/menu-bar.png"> -->
-                        <a href="">Settings</a>
-                    </div>
-
-                    <div class="link">
-                        <!-- <img src="@/assets/icons/menu-bar.png"> -->
-                        <a href="">Sign Out</a>
-                    </div>
+                    <h3>Dashboard</h3>
+                    <h3>Settings</h3>
+                    <h3>Settings</h3>
+                    <h3 @click="signOut">Sign Out</h3>
                 </div>
 
                 <div id="navigation-footer">
@@ -58,6 +43,11 @@ export default {
     data() {
         return {
             current_component: 'AnalysisCharts'
+        }
+    },
+    methods: {
+        signOut(){
+            this.$router.push('login');
         }
     },
     mounted() {

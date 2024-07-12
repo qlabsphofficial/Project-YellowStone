@@ -1,0 +1,38 @@
+.fade-in-top {
+    animation: panTop .4s ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateY(-2.5%);
+}
+
+.fade-in-left {
+    animation: panLeft .4s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: .4s;
+    opacity: 0;
+    transform: translateX(-2.5%);
+}
+
+@keyframes panTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-2.5%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes panLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-2.5%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

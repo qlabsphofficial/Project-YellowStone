@@ -1,15 +1,15 @@
 <template>
     <div id="container">
-        <div id="login-modal">
+        <div id="login-modal" class="fade-in-top">
             <h1>LOGIN</h1>
             <h5>Mango Quality Analysis System</h5>
 
-            <form method="post">
+            <form method="post" @submit.prevent="login()">
                 <h4>Username</h4>
-                <input type="text" placeholder="Enter your username...">
+                <input type="text" placeholder="Enter your username..." v-model="this.username">
 
                 <h4>Password</h4>
-                <input type="text" placeholder="Enter your username...">
+                <input type="password" placeholder="Enter your password..." v-model="this.password">
 
                 <input id="submit-button" type="submit" value="Login">
             </form>
@@ -19,17 +19,34 @@
 
 <script>
 import '@/assets/base.css';
+import '@/assets/styles/global.scss';
 import current_address from '@/address.js';
 
 export default {
     'name': 'LoginView',
     data() {
         return {
-
+            username: '',
+            password: ''
         }
     },
+    methods: { 
+        async login() {
+            try {
+                if (this.username == 'administrator' && this.password == 'pass123'){
+                    console.log('test');
+                    this.$router.push('/admin');
+                }
+                else {
+
+                }
+            } catch (error) {
+                console.error('An error occurred during login:', error.message);
+            }
+        },
+    },
     mounted() {
-        console.log(current_address);
+
     }
 }
 </script>
@@ -44,7 +61,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #003566;
 
     #login-modal {
         height: 75%;
@@ -55,7 +72,7 @@ export default {
         justify-content: center;
         align-items: center;
         border-radius: 15px;
-        box-shadow: 2px 2px 2px 2px #cccccc;
+        box-shadow: 2px 2px 2px 2px #00213f;
 
         h1 {
             line-height: 0;
@@ -89,6 +106,7 @@ export default {
             #submit-button:hover {
                 background-color: transparent;
                 color: #4d4d4d;
+                border-color: #4d4d4d;
             }
         }
         
