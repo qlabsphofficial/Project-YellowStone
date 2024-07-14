@@ -8,10 +8,10 @@
                 </div>
 
                 <div id="links">
-                    <h3>Dashboard</h3>
-                    <h3>Settings</h3>
-                    <h3>Settings</h3>
-                    <h3 @click="signOut">Sign Out</h3>
+                    <h3 @click="changeComponent('AnalysisCharts')">Dashboard</h3>
+                    <h3 @click="changeComponent('Records')">Records</h3>
+                    <!-- <h3 @click="changeComponent('Profile')">Profile</h3> -->
+                    <h3 @click="signOut()">Sign Out</h3>
                 </div>
 
                 <div id="navigation-footer">
@@ -30,6 +30,8 @@
 <script>
 // import DashboardPage from './DashboardPage.vue';
 import AnalysisCharts from '@/components/charts/AnalysisCharts.vue';
+import Records from '@/components/Records.vue';
+import Profile from '@/components/Profile.vue';
 
 import '@/assets/base.css';
 import current_address from '@/address.js';
@@ -37,21 +39,25 @@ import current_address from '@/address.js';
 export default {
     'name': 'AdminPage',
     'components': {
-        // DashboardPage
-        AnalysisCharts
+        AnalysisCharts,
+        Records,
+        Profile
     },
     data() {
         return {
-            current_component: 'AnalysisCharts'
+            current_component: 'AnalysisCharts',
+            hq_count: 0,
+            lq_count: 0
         }
     },
     methods: {
+        changeComponent(componentName){
+            this.current_component = componentName;
+        },
+
         signOut(){
-            this.$router.push('login');
+            this.$router.push('/');
         }
-    },
-    mounted() {
-        console.log(current_address);
     }
 }
 </script>
@@ -71,7 +77,7 @@ export default {
     width: 15%;
     height: 100%;
     color: white;
-    background-color: #003566;
+    background-color: rgb(0, 53, 102);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,6 +104,10 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+            h3 {
+                cursor: pointer;
+            }
         }
 
         #navigation-footer {

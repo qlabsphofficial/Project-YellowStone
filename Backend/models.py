@@ -16,4 +16,4 @@ class Record(Base):
     
     id = Column(Integer, autoincrement=True, primary_key=True)
     analysis = Column(String)
-    date_recorded = Column(DateTime)
+    date_recorded = Column(DateTime, default=func.now())

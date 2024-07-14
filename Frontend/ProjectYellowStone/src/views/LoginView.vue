@@ -1,4 +1,13 @@
 <template>
+    <div id="login-modal-container" v-if="modal_visible">
+        <div id="login-modal">
+            <h1>Login Failed</h1>
+            <p>Please ensure that your credentials are correct.</p>
+
+            <button @click="closeModal()">Close</button>
+        </div>
+    </div>
+
     <div id="container">
         <div id="login-modal" class="fade-in-top">
             <h1>LOGIN</h1>
@@ -27,31 +36,59 @@ export default {
     data() {
         return {
             username: '',
-            password: ''
+            password: '',
+
+            modal_visible: false
         }
     },
     methods: { 
         async login() {
             try {
                 if (this.username == 'administrator' && this.password == 'pass123'){
-                    console.log('test');
                     this.$router.push('/admin');
                 }
                 else {
-
+                    this.modal_visible = true;
                 }
             } catch (error) {
                 console.error('An error occurred during login:', error.message);
             }
         },
-    },
-    mounted() {
 
+        closeModal(){
+            this.username = '';
+            this.password = '';
+            this.modal_visible = false;
+        }
     }
 }
 </script>
 
 <style scoped lang="scss">
+#login-modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 3;
+}
+
+#login-modal {
+    height: 40vh;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: white;
+}
+
 #container {
     height: 100vh;
     width: 100vw;
