@@ -40,7 +40,6 @@ Installation
 Clone the Repository
 
 ### bash
-git clone https://github.com/yourusername/mango-quality-analysis.git
 cd mango-quality-analysis
 Create a Virtual Environment
 
